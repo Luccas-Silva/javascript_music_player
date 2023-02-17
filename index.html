@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="card">
+        <h3 id="title">My Playlist</h3>
+
+        <img id="cover" src="assets/img/As-It-Was.webp" alt="As-It-Was">  
+
+        <div id="below-cover">
+            <div id="song-info">
+                <div id="song-name">As It Was</div> 
+                <div id="band-name">Harry Styles</div> 
+            </div>
+            <div id="heart" class="button">
+                <i class="ph-heart-fill"></i>
+            </div>
+        </div>
+
+        <div id="progress-bar">
+            <div id="current-progress" ></div>
+        </div>
+
+        <div id="button-container">
+            <div id="shuffle" class="button-navigate"><i class="ph-shuffle-fill"></i></div>
+            <div id="previous" class="button"><i class="ph-caret-double-left-fill"></i></div>
+            <div id="play" class="button-navigate-big"><i class="ph-play-fill"></i></div>
+            <div id="next" class="button"><i class="ph-caret-double-right-fill"></i></div>
+            <div id="repeat" class="button-navigate"><i class="ph-repeat-fill"></i>  </div> 
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    background: linear-gradient(112.87deg, #EA98DA 0%, #5B6CF9 100%);
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+body * {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    background-color: #4C4C9D;
+    filter: drop-shadow(20px 25px 10px rgba(0, 0, 0, 0.5));
+    border-radius: 2rem;
+    padding: 2.5rem;
+}
+
+#title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+#cover {
+    width: 30.5rem;
+    height: 30.5rem;
+    object-fit: cover;
+    
+}
+
+#song-name{
+    font-size: 2.4rem;
+    font-weight: bold;
+    
+}
+
+#below-cover{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0 3rem 0;
+}
+
+#progress-bar {
+    background-color: #FFFFFF;
+    height: 0.3rem;
+    width: 100%;
+    border-radius: 1.5rem;
+}
+
+#current-progress {
+    background-color: #F5D547;
+    height: inherit;
+    border-radius: inherit;
+    width: 25%;
+}
+
+#button-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.button-navigate{
+    font-size: 2.5rem;
+}
+
+.button {
+    font-size: 3.5rem;
+}
+
+.button-navigate-big{
+    font-size: 4.5rem;
+}
+
