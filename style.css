@@ -63,6 +63,11 @@ body * {
     margin: 3rem 0 3rem 0;
 }
 
+#progress-container {
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
 #progress-bar {
     background-color: #FFFFFF;
     height: 0.3rem;
@@ -71,17 +76,18 @@ body * {
 }
 
 #current-progress {
-    background-color: #F5D547;
+    --progress: 0%;
+    background-color: #FCBA04;
     height: inherit;
     border-radius: inherit;
-    width: 25%;
+    width: var(--progress);
 }
 
 #button-container{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 button {

@@ -2,7 +2,8 @@ const cover = document.getElementById('cover');
 const songName = document.getElementById('song-name');
 const bandName = document.getElementById('band-name');
 const song = document.getElementById('audio');
-
+const currentProgress = document.getElementById('current-progress');
+const progressContainer = document.getElementById('progress-container')
 const previous = document.getElementById('previous');
 const play = document.getElementById('play');
 const next = document.getElementById('next');
@@ -27,7 +28,22 @@ const BK = {
     bandName : 'BK',
     file: 'Planos'
 };
-const playlist = [RainyDay, Djonga, BK, AsItWas];
+const Sahara = {
+    songName : 'Sahara (Slowed)',
+    bandName : 'Hensonn',
+    file: 'Sahara'
+};
+const Orion = {
+    songName : 'Orion',
+    bandName : 'SCayos x Azayaka',
+    file: 'Orion'
+};
+const MIDNIGHT = {
+    songName : 'MIDNIGHT',
+    bandName : 'PLAYAMANE x Nateki',
+    file: 'MIDNIGHT'
+};
+const playlist = [RainyDay, Djonga, BK, AsItWas, Sahara, MIDNIGHT, Orion];
 let index = 0;
 
 function initializeSong(){
@@ -84,7 +100,24 @@ function nextSong(){
     playSong();
 }
 
+function updateProgressBar(){
+    song.currentTime
+    song.duration
+    const barWidth = (song.currentTime/song.duration)*100;
+    currentProgress.style.setProperty('--progress', `${barWidth}%`);
+}
+
+function jumpTo(event){
+    const width = progressContainer.clientWidth;
+    const clickPosition = event.offsetX;
+    const jumpToTime = (clickPosition/width) * song.duration;
+    song.currentTime = jumpToTime;
+}
+
 initializeSong();
+
+song.addEventListener('timeupdate', updateProgressBar);
+progressContainer.addEventListener('click', jumpTo);
 
 previous.addEventListener('click', previousSong);
 play.addEventListener('click', playPauseDecider);
