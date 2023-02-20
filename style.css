@@ -108,3 +108,7 @@ button {
 .button-navigate-big{
     font-size: 4.5rem;
 }
+
+.button-active {
+    color: #FCBA04;
+}
