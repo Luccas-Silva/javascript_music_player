@@ -8,6 +8,10 @@ const previous = document.getElementById('previous');
 const play = document.getElementById('play');
 const next = document.getElementById('next');
 const shuffleButton = document.getElementById('shuffle');
+const repeatButton = document.getElementById('repeat');
+const songTime = document.getElementById('song-time');
+const totalTime = document.getElementById('total-time');
+const heartButton = document.getElementById('heart');
 
 const AsItWas = {
     songName : 'As It Was',
@@ -107,6 +111,7 @@ function updateProgressBar(){
     song.duration
     const barWidth = (song.currentTime/song.duration)*100;
     currentProgress.style.setProperty('--progress', `${barWidth}%`);
+    songTime.innerText = toHHMMSS(song.currentTime);
 }
 
 function jumpTo(event){
@@ -143,12 +148,64 @@ function shuffleButtonClicked(){
     }
 }
 
+let repeatOn = false;
+
+function repeatButtonClicked(){
+    if(repeatOn === false){
+        repeatOn = true;
+        repeatButton.classList.add('button-active');
+    }
+    else{
+        repeatOn = false;
+        repeatButton.classList.remove('button-active');
+    }
+}
+
+function nextOrRepeat(){
+    if(repeatOn === false){
+        nextSong();
+    }
+    else{
+        playSong();
+    }
+}
+
+function toHHMMSS(originalNumber){
+    let hours = Math.floor(originalNumber/3600);
+    let min = Math.floor((originalNumber - hours * 3600) / 60);
+    let secs = Math.floor(originalNumber - hours * 3600 - min * 60);
+
+    return `${min.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
+}
+
+function updateTotalTime() {
+    totalTime.innerText = toHHMMSS(song.duration);
+}
+
+let heart = false;
+function updateHeartButton() {
+    if(heart === false){
+        heart = true
+        heartButton.querySelector('.ph').classList.add('ph-heart-straight-fill');
+        heartButton.classList.add('button-active');
+    }
+    else{
+        heart = false
+        heartButton.querySelector('.ph').classList.remove('ph-heart-straight-fill');
+        heartButton.classList.remove('button-active');
+    }
+    
+}
+
 initializeSong();
 
 song.addEventListener('timeupdate', updateProgressBar);
+song.addEventListener('ended', nextOrRepeat);
+song.addEventListener('loadedmetadata', updateTotalTime);
 progressContainer.addEventListener('click', jumpTo);
-
 shuffleButton.addEventListener('click', shuffleButtonClicked);
 previous.addEventListener('click', previousSong);
 play.addEventListener('click', playPauseDecider);
 next.addEventListener('click', nextSong);
+repeatButton.addEventListener('click', repeatButtonClicked);
+heartButton.addEventListener('click', updateHeartButton)

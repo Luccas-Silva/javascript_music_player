@@ -64,7 +64,6 @@ body * {
 }
 
 #progress-container {
-    padding: 1rem 0;
     cursor: pointer;
 }
 
@@ -73,6 +72,12 @@ body * {
     height: 0.3rem;
     width: 100%;
     border-radius: 1.5rem;
+}
+
+#time-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #current-progress {
