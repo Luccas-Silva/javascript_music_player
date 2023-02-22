@@ -8,6 +8,9 @@
 ### Ideia do Projeto 
 - O objetivo é criar um  music player com funcionalidades básicas de avançar para a próxima música, voltar, emparelhar a playlist, repetir a música e curtir a música.
 
+### Site:
+- https://luccas-music-player.netlify.app/
+
 ## Tecnologias usadas
 - `HTML`
 - `CSS`
